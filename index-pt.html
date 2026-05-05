@@ -1,0 +1,355 @@
+﻿<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jos&#233; Maur&#237;cio - Curriculum Vitae</title>
+  <meta name="description" content="Curriculum Vitae de Jos&#233; Maur&#237;cio">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --paper: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --primary: #0f766e;
+      --accent: #ea580c;
+      --shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+      --radius: 20px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Manrope', 'Trebuchet MS', sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      z-index: -1;
+      border-radius: 50%;
+      filter: blur(45px);
+      opacity: .45;
+      pointer-events: none;
+    }
+
+    body::before {
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(13,148,136,.14), rgba(13,148,136,0));
+      top: -110px;
+      left: -90px;
+    }
+
+    body::after {
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(234,88,12,.12), rgba(234,88,12,0));
+      right: -120px;
+      top: 22%;
+    }
+
+    .wrap {
+      width: min(100% - 2.5rem, var(--max));
+      margin-inline: auto;
+      padding-bottom: 3.2rem;
+    }
+
+    .hero {
+      margin-top: 2rem;
+      background: linear-gradient(135deg, #ffffff, #fff8f2);
+      border: 1px solid var(--line);
+      border-radius: clamp(20px, 3vw, 34px);
+      box-shadow: var(--shadow);
+      padding: clamp(1.4rem, 3vw, 2.6rem);
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 180px 1fr;
+      align-items: center;
+    }
+
+    .hero img {
+      width: 170px;
+      height: 170px;
+      border-radius: 26px;
+      object-fit: cover;
+      border: 2px solid #fff;
+      box-shadow: 0 14px 24px rgba(15, 23, 42, .14);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -.02em;
+    }
+
+    .hero .title {
+      margin: .3rem 0 1rem;
+      color: var(--primary);
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .contact,
+    .quick-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      margin: .75rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contact a,
+    .contact span,
+    .quick-stats li {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: .42rem .82rem;
+      text-decoration: none;
+      color: inherit;
+      font-size: .9rem;
+    }
+
+    .quick-stats li strong { color: var(--accent); }
+
+    section { margin-top: 2.2rem; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 1rem;
+      margin-bottom: .95rem;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+    }
+
+    .section-head p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+    .grid-2 {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .mini-card,
+    .project,
+    .skill-card,
+    .about {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.05);
+      padding: 1.05rem 1.1rem;
+    }
+
+    .mini-card h3,
+    .skill-card h3 { margin: .2rem 0 .25rem; font-size: 1.05rem; }
+    .mini-period { margin: 0; color: var(--accent); font-weight: 700; font-size: .82rem; text-transform: uppercase; letter-spacing: .04em; }
+    .mini-role { margin: 0; color: var(--primary); font-weight: 700; }
+    .mini-desc { margin: .45rem 0 0; color: var(--muted); font-size: .95rem; }
+
+    .projects { display: grid; gap: .95rem; grid-template-columns: 1fr; align-items: start; }
+
+    .project-head {
+      display: flex;
+      justify-content: space-between;
+      gap: .8rem;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+
+    .project h3 { margin: 0; font-size: 1.12rem; }
+    .period { color: var(--accent); font-size: .9rem; font-weight: 700; }
+
+    .meta {
+      margin: .65rem 0 .35rem;
+      display: grid;
+      gap: .28rem;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .project-expanded {
+      margin-top: .55rem;
+      border-top: 1px dashed var(--line);
+      padding-top: .55rem;
+    }
+
+    .expand-title {
+      margin: 0 0 .5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .project-body p { margin: .62rem 0; color: #1e293b; }
+
+    .stack-title { margin: .7rem 0 .4rem; font-weight: 700; color: var(--muted); }
+
+    .stack,
+    .skill-card ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      list-style: none;
+    }
+
+    .stack li,
+    .skill-card li {
+      background: #f8fafc;
+      border: 1px solid #dbe4ee;
+      border-radius: 999px;
+      padding: .3rem .62rem;
+      font-size: .82rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      gap: .8rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .lang-grid {
+      display: grid;
+      gap: .8rem;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .lang-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(180deg, #ffffff, #f8fafc);
+      padding: .95rem;
+      text-align: center;
+    }
+
+    .lang-card p { margin: 0; color: var(--accent); font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+    .lang-card h3 { margin: .24rem 0 0; font-size: 1.02rem; }
+
+    .about p { margin: .72rem 0; color: #1e293b; }
+    .signature { margin-top: 1rem; color: var(--muted); font-weight: 700; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: rise .7s ease forwards;
+      animation-delay: calc(var(--stagger, 0) * 48ms);
+    }
+
+    @keyframes rise {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .hero img { margin: 0 auto; }
+      .contact, .quick-stats { justify-content: center; }
+      .grid-2, .skills-grid { grid-template-columns: 1fr; }
+      .lang-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .section-head { display: block; }
+      .section-head p { margin-top: .2rem; }
+    }
+
+    @media (max-width: 600px) {
+      .wrap { width: min(100% - 1.2rem, var(--max)); }
+      .hero { margin-top: 1rem; padding: 1.05rem; border-radius: 20px; }
+      .hero img { width: 135px; height: 135px; border-radius: 20px; }
+      .project h3 { font-size: 1rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { animation: none; opacity: 1; transform: none; }
+    }
+
+    @media print {
+      body::before, body::after { display: none; }
+      .hero, .mini-card, .project, .skill-card, .about { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero reveal" style="--stagger:0">
+      <img src="jose-mauricio-49.jpg" alt="Foto de perfil de Jos&#233; Maur&#237;cio">
+      <div>
+        <h1>Jos&#233; Maur&#237;cio</h1>
+        <p class="title">Full-Stack Developer</p>
+        <ul class="contact"><li><a href="mailto:xjpmauricio@gmail.com">xjpmauricio@gmail.com</a></li><li><a href="tel:+351933627429">+351 933627429</a></li><li><a href="https://www.linkedin.com/in/josemauricio" target="_blank" rel="noopener">www.linkedin.com/in/josemauricio</a></li><li><span>Nascimento: 25 setembro 1973</span></li></ul>
+        <ul class="quick-stats">
+          <li><strong>22</strong> projetos registados</li>
+          <li><strong>23+</strong> anos de experi&#234;ncia</li>
+          <li><strong>68+</strong> tecnologias referidas</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Resumo da Experi&#234;ncia Profissional</h2>
+        <p>Trajet&#243;ria por empresa e per&#237;odo.</p>
+      </div>
+      <div class="grid-2"><article class="mini-card reveal" style="--stagger:1"><p class="mini-period">Outubro 2023 at&#233; 2025</p><h3>Grupo GERA &#8211; ERA e Sotheby&#x27;s</h3><p class="mini-role">Full-Stack developer</p></article><article class="mini-card reveal" style="--stagger:2"><p class="mini-period">Setembro 2013 at&#233; 2022</p><h3>Gottsolutions / Itoorer</h3><p class="mini-role">Lead developer / Full-Stack developer</p></article><article class="mini-card reveal" style="--stagger:3"><p class="mini-period">Novembro 2012 a Junho 2013</p><h3>Frotcom.com - Intelligent GPS Vehicle Tracking System</h3><p class="mini-role">Programador S&#233;nior</p><p class="mini-desc">Resolu&#231;&#227;o de BUGS. Desenvolvimento de novas funcionalidades e produtos.</p></article><article class="mini-card reveal" style="--stagger:4"><p class="mini-period">Agosto 2012 a Novembro 2012</p><h3>Freelancer</h3><p class="mini-role">Programador S&#233;nior</p><p class="mini-desc">Trabalhei com os seguintes clientes: Montepio Geral e Host Hotel Systems.</p></article><article class="mini-card reveal" style="--stagger:5"><p class="mini-period">Junho 2009 a Julho 2012</p><h3>HighBrand</h3><p class="mini-role">Fun&#231;&#227;o de Programador/Consultor S&#233;nior</p><p class="mini-desc">Desenvolvimento in-house de solu&#231;&#245;es inform&#225;ticas e Outsourcing.</p></article><article class="mini-card reveal" style="--stagger:6"><p class="mini-period">Junho 2007 a Junho 2009</p><h3>SetCom SGPS</h3><p class="mini-role">Fun&#231;&#227;o de Programador</p><p class="mini-desc">Desenvolvimento in-house de aplica&#231;&#245;es inform&#225;ticas para empresas do grupo SetCom.</p></article><article class="mini-card reveal" style="--stagger:7"><p class="mini-period">Outubro 2005 a Maio 2007</p><h3>EAD &#8211; Empresa de Arquivo de Documenta&#231;&#227;o</h3><p class="mini-role">Fun&#231;&#245;es de Programador e de suporte t&#233;cnico ao departamento de arquivos &#243;pticos e outros.</p><p class="mini-desc">Desenvolvimento de aplica&#231;&#245;es web e desktop para todos os departamentos da empresa e desenvolvimento tamb&#233;m de aplica&#231;&#245;es em regime ASP para clientes directos da empresa.</p></article><article class="mini-card reveal" style="--stagger:8"><p class="mini-period">Janeiro 2003 a Outubro 2005</p><h3>SoftLab</h3><p class="mini-role">Fun&#231;&#245;es de Programador no departamento de pesquisa e desenvolvimento aplicacional.</p><p class="mini-desc">Desenvolvimento de aplica&#231;&#245;es web v&#225;rias mas, principal respons&#225;vel pelo desenvolvimento do IDE/RAD para ambiente web - Eportal. (Produto comercial).</p></article><article class="mini-card reveal" style="--stagger:9"><p class="mini-period">Maio 2001 a Setembro 2002</p><h3>Spiark Lda &#8211; Franchise Moldura na Hora</h3><p class="mini-role">Fun&#231;&#245;es de designer gr&#225;fico/programador</p><p class="mini-desc">Desenvolvimento de cat&#225;logos de produtos, processamento de imagem e impress&#227;o.</p></article></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Resumo de Tecnologias</h2>
+        <p>Compet&#234;ncias agrupadas por categoria.</p>
+      </div>
+      <div class="skills-grid"><article class="skill-card reveal" style="--stagger:1"><h3>Bases de Dados</h3><ul><li>Entity Framework</li><li>MSSQL Server</li><li>MySQL</li><li>Oracle 10</li><li>Oracle 11</li><li>Toad</li><li>Microsoft Access</li></ul></article><article class="skill-card reveal" style="--stagger:2"><h3>Linguagens de Programa&#231;&#227;o</h3><ul><li>ASP Cl&#225;ssico (VB)</li><li>C#</li><li>Java</li><li>Javascript</li><li>PHP</li><li>VB.NET</li><li>Visual Basic</li></ul></article><article class="skill-card reveal" style="--stagger:3"><h3>IDE</h3><ul><li>Android Studio</li><li>Eclipse</li><li>Visual Studio</li><li>Visual Studio Code</li><li>NetBeans</li></ul></article><article class="skill-card reveal" style="--stagger:4"><h3>Frameworks de Javascript</h3><ul><li>ExtJs 2.0</li><li>ExtJs 3.0</li><li>ExtJs 4.0</li><li>ExtJs 4.2</li><li>jQuery</li><li>jQuery UI</li><li>MooTools</li></ul></article><article class="skill-card reveal" style="--stagger:5"><h3>Frameworks de Programa&#231;&#227;o</h3><ul><li>ASP.NET</li><li>Microsoft Ajax Control Toolkit</li><li>Microsoft Web Services</li><li>MVC</li><li>OutSystems</li><li>Razor</li><li>WCF</li><li>Windows Forms</li><li>WPF</li><li>XAML</li><li>.NET Core</li><li>Blazor</li><li>Radzen.Blazor</li></ul></article><article class="skill-card reveal" style="--stagger:6"><h3>Mobile</h3><ul><li>Android</li><li>J2ME</li><li>jQuery Mobile</li><li>Phonegap</li><li>Sencha Touch</li><li>Nativescript</li></ul></article><article class="skill-card reveal" style="--stagger:7"><h3>Controlo de Vers&#245;es</h3><ul><li>GIT</li><li>TFS</li><li>Tortoise</li></ul></article><article class="skill-card reveal" style="--stagger:8"><h3>Web</h3><ul><li>AngularJs 1.x</li><li>Angular</li><li>Bootstrap</li><li>CSS</li><li>HTML</li><li>SignalR</li></ul></article><article class="skill-card reveal" style="--stagger:9"><h3>Gestores de Conte&#250;dos</h3><ul><li>DotNetNuke</li><li>Wordpress</li></ul></article><article class="skill-card reveal" style="--stagger:10"><h3>Outros</h3><ul><li>Adobe Lightroom</li><li>Adobe Photoshop</li></ul></article><article class="skill-card reveal" style="--stagger:11"><h3>Sistemas Operativos</h3><ul><li>Linux Ubuntu</li><li>shell</li><li>Windows (NT</li><li>98</li><li>2000</li><li>XP</li><li>Vista</li><li>Windows7)</li><li>Windows Advanced Server 2003</li><li>2008</li></ul></article></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Educa&#231;&#227;o</h2>
+        <p>Percurso acad&#233;mico e forma&#231;&#227;o complementar.</p>
+      </div>
+      <div class="grid-2"><article class="mini-card reveal" style="--stagger:1"><p class="mini-period">1996 &#8211; 1997</p><h3>Curso de programadores de inform&#225;tica industrial</h3><p class="mini-desc">Linguagens Cobol, Pascal e Fortran &#8211; Base de dados DBase.</p></article><article class="mini-card reveal" style="--stagger:2"><p class="mini-period">1995 &#8211; 1999</p><h3>Curso de Guitarra Cl&#225;ssica</h3><p class="mini-desc">Conservat&#243;rio Regional de Set&#250;bal.</p></article><article class="mini-card reveal" style="--stagger:3"><p class="mini-period">2001 &#8211; 2002</p><h3>Escola Superior de Educa&#231;&#227;o de Set&#250;bal</h3><p class="mini-desc">Curso de professores do ensino b&#225;sico vertente educa&#231;&#227;o musical (licenciatura).</p></article><article class="mini-card reveal" style="--stagger:4"><p class="mini-period">2006 &#8211; 2007</p><h3>Kofax Ascent Capture</h3><p class="mini-desc">Curso avan&#231;ado em Kofax Ascent Capture na empresa EAD dado pela Dicom Portugal.</p></article><article class="mini-card reveal" style="--stagger:5"><p class="mini-period">2008 - 2009</p><h3>Microsoft .NET Framework</h3><p class="mini-desc">Curso avan&#231;ado em Microsoft .NET Framework 2.0 &#8211; Windows e Web forms.</p></article><article class="mini-card reveal" style="--stagger:6"><p class="mini-period">2022</p><h3>Licenciatura em Gest&#227;o de Sistemas de Informa&#231;&#227;o</h3><p class="mini-desc">Encontro-me atualmente a frequentar o 3&#186; ano da Licenciatura em Gest&#227;o de Sistemas de Informa&#231;&#227;o na Escola Superior de Ci&#234;ncias Empresariais em Set&#250;bal.</p></article></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Projetos Mais Relevantes</h2>
+        <p>Informa&#231;&#227;o extra&#237;da e organizada a partir do CV original.</p>
+      </div>
+      <div class="projects"><article class="project reveal" style="--stagger:1"><div class="project-head"><h3>Departamento IT Multinacional &#193;rea Imobili&#225;rio</h3><span class="period">out/2023 - Atual</span></div><div class="meta"><span><strong>Cliente:</strong> ERA e Sotheby&#x27;s</span><span><strong>Fun&#231;&#227;o:</strong> Full-Stack developer</span><span><strong>Equipa:</strong> 20</span></div><div class="project-expanded"><p class="expand-title">Descri&#231;&#227;o e tecnologias</p><div class="project-body"><p>Atuei na migra&#231;&#227;o de uma plataforma para uma nova arquitetura, garantindo maior efici&#234;ncia e escalabilidade do sistema. Al&#233;m disso, desenvolvi uma prova de conceito utilizando OpenAI para automa&#231;&#227;o de processos no setor imobili&#225;rio o que envolveu a extra&#231;&#227;o de dados a partir de documentos preenchidos &#224; m&#227;o, permitindo o preenchimento autom&#225;tico de formul&#225;rios na nova plataforma em desenvolvimento. Utilizando OpenAI Vision, implementei a descri&#231;&#227;o automatizada de imagens de im&#243;veis (reconhecimento de divis&#245;es do im&#243;vel e elementos presentes nas imagens) para a gera&#231;&#227;o de textos otimizados para SEO o que obrigou ao desenvolvimento de prompts espec&#237;ficos para aprimorar a precis&#227;o dos resultados.</p></div><p class="stack-title">Tecnologias</p><ul class="stack"><li>Entity Framework</li><li>Linq2SQL</li><li>Blazor Server App</li><li>C#</li><li>Azure</li><li>OpenAI</li><li>Visual Studio</li><li>Azure</li><li>Radzen.Blazor</li><li>SQL</li><li>Azure</li></ul></div></article><article class="project reveal" style="--stagger:2"><div class="project-head"><h3>Veezit, City Guide, Backoffice</h3><span class="period">set/2013 - out/2022</span></div><div class="meta"><span><strong>Cliente:</strong> Gottsolutions / Itoorer</span><span><strong>Fun&#231;&#227;o:</strong> Lead Developer</span><span><strong>Equipa:</strong> 10</span></div><div class="project-expanded"><p class="expand-title">Descri&#231;&#227;o e tecnologias</p><div class="project-body"><p>Este projeto foi criado por um grupo de investidores, maioritariamente do Porto, e consistia no desenvolvimento de uma App (launcher) integrada em dispositivos m&#243;veis que eram disponibilizados em regime de aluguer por rent-a-cars e hot&#233;is. O objetivo do produto era fornecer Internet sem limite de consumo (atrav&#233;s de HotSpot), comunica&#231;&#245;es de voz nacionais e internacionais ilimitadas (via Sinch), GPS e uma aplica&#231;&#227;o de guia tur&#237;stico. Inicialmente assumi o papel de Lead Developer do projeto, tendo sido respons&#225;vel por toda a arquitetura.</p><p>Entre os v&#225;rios componentes do projeto destacava-se o backoffice (MDM), que permitia o controlo e gest&#227;o do neg&#243;cio ao n&#237;vel de alugueres e manuten&#231;&#227;o dos dispositivos; o limitador de velocidade de Internet, implementado com iptables e tc; a app Veezit que disponibilizava conte&#250;dos tur&#237;sticos, recorrendo tanto &#224; Google Places API como a conte&#250;dos pr&#243;prios; e as comunica&#231;&#245;es em tempo real com os dispositivos via SignalR, o que permitia a execu&#231;&#227;o de opera&#231;&#245;es de manuten&#231;&#227;o remota. A Gott estava presente em algumas das maiores rent-a-cars mundiais, nomeadamente a HERTZ US e a SIXT US, e contava com dezenas de colaboradores distribu&#237;dos a n&#237;vel global.</p><p>As minhas fun&#231;&#245;es eram diferentes das iniciais, uma vez que a equipa tinha crescido e j&#225; contava com mais programadores. Era respons&#225;vel por v&#225;rios componentes ao n&#237;vel de CI/CD, como GitLab, Jenkins e Nexus, executava fun&#231;&#245;es de code reviewer e de an&#225;lise t&#233;cnica e funcional de novas solu&#231;&#245;es, e continuava a programar na &#225;rea de pesquisa e desenvolvimento de novos projetos.</p></div><p class="stack-title">Tecnologias</p><ul class="stack"><li>Android</li><li>Android Studio</li><li>AngularJs 1.x</li><li>ASP.NET</li><li>Bootstrap</li><li>C#</li><li>CSS</li><li>CSS3</li><li>Eclipse</li><li>GIT</li><li>HTML</li><li>HTML5</li><li>Java</li><li>Javascript</li><li>jQuery</li><li>jQuery UI</li><li>LINQ</li><li>Linux Ubuntu 14</li><li>MSSQL Server 2008</li><li>2016</li><li>MVC</li><li>shell</li><li>SignalR</li><li>Single Page Application</li><li>Tortoise</li><li>Visual Studio 2012</li><li>Visual Studio 2017</li><li>Windows Advanced Server 2003</li><li>2008</li><li>Windows Forms</li></ul></div></article><article class="project reveal" style="--stagger:3"><div class="project-head"><h3>Educando School Management System</h3><span class="period">mar/2013 - jan/2014</span></div><div class="meta"><span><strong>Cliente:</strong> Projeto Pessoal</span><span><strong>Fun&#231;&#227;o:</strong> Lead Developer</span><span><strong>Equipa:</strong> 1</span></div><div class="project-expanded"><p class="expand-title">Descri&#231;&#227;o e tecnologias</p><div class="project-body"><p>O Educando foi uma plataforma online de gest&#227;o escolar que permitia simplificar as tarefas do dia a dia e facilitava a partilha de informa&#231;&#227;o entre alunos, professores e pais.</p><p>Para o desenvolvimento do Educando foram selecionadas tecnologias bastante atuais &#224; &#233;poca, como HTML5 e CSS3, que em conjunto com frameworks como jQuery e AngularJS tornavam a experi&#234;ncia de navega&#231;&#227;o num website cada vez mais robusta, semelhante &#224; de uma aplica&#231;&#227;o instalada localmente num desktop. Deste modo, mantinha-se um n&#237;vel visual apelativo e moderno, melhorando significativamente a intera&#231;&#227;o do utilizador com o interface gr&#225;fico.</p></div><p class="stack-title">Tecnologias</p><ul class="stack"><li>AngularJs 1.x</li><li>ASP.NET</li><li>Bootstrap</li><li>C#</li><li>CSS</li><li>CSS3</li><li>HTML</li><li>HTML5</li><li>Javascript</li><li>jQuery</li><li>jQuery UI</li><li>LINQ</li><li>MSSQL Server 2008 R2</li><li>SignalR</li><li>Single Page Application</li><li>Tortoise</li><li>Visual Studio 2012</li></ul></div></article><article class="project reveal" style="--stagger:4"><div class="project-head"><h3>Tachograph Card Reader</h3><span class="period">jan/2013 - mai/2012</span></div><div class="meta"><span><strong>Cliente:</strong> Frotcom</span><span><strong>Fun&#231;&#227;o:</strong> Lead Developer</span><span><strong>Equipa:</strong> 4</span></div><div class="project-expanded"><p class="expand-title">Descri&#231;&#227;o e tecnologias</p><div class="project-body"><p>Este projeto teve como objetivo a leitura remota de dados de tac&#243;grafo. Integra-se com um daemon existente que efetuava a comunica&#231;&#227;o direta com os tac&#243;grafos digitais e consistia nas seguintes aplica&#231;&#245;es: cliente em WPF, daemon central de orquestra&#231;&#227;o (Windows Service) de todas as comunica&#231;&#245;es e daemon de comunica&#231;&#245;es com tac&#243;grafos. Para a comunica&#231;&#227;o entre clientes e servi&#231;os foram usados protocolos TCP/IP, em que os dados eram serializados/deserializados para JSON tanto nos clientes como nos servi&#231;os. Tratou-se da minha primeira e &#250;nica experi&#234;ncia em WPF e XAML.</p><p>Para a cria&#231;&#227;o dos ficheiros MSI de instala&#231;&#227;o da aplica&#231;&#227;o nos clientes, foi usado o WIX Toolset, sobre o qual acabei por fazer um &#8220;crash-course&#8221;.</p></div><p class="stack-title">Tecnologias</p><ul class="stack"><li>ASP.NET</li><li>C#</li><li>Entity Framework</li><li>LINQ</li><li>MSSQL Server 2008 R2</li><li>TCP/IP</li><li>Tortoise</li><li>Visual Studio 2012</li><li>WCF</li><li>WIX Toolset</li><li>WPF</li><li>XAML</li></ul></div></article><article class="project reveal" style="--stagger:5"><div class="project-head"><h3>Montepio Geral - Migra&#231;&#227;o de Plataforma</h3><span class="period">jul/2012 - nov/2012</span></div><div class="meta"><span><strong>Cliente:</strong> Montepio Geral</span><span><strong>Fun&#231;&#227;o:</strong> Software Developer</span><span><strong>Equipa:</strong> 20</span></div><div class="project-expanded"><p class="expand-title">Descri&#231;&#227;o e tecnologias</p><div class="project-body"><p>Realizou-se a migra&#231;&#227;o de uma plataforma de recupera&#231;&#227;o de cr&#233;dito, originalmente desenvolvida em Windows Forms, para uma nova vers&#227;o em Web Forms recorrendo &#224; Framework ASP.NET (C#).</p></div><p class="stack-title">Tecnologias</p><ul class="stack"><li>ASP.NET</li><li>C#</li><li>Entity Framework</li><li>jQuery</li><li>LINQ</li><li>Microsoft Ajax Control Toolkit</li><li>Microsoft Web Services</li><li>MSSQL Server 2008 R2</li><li>TFS</li><li>Visual Studio 2010</li></ul></div></article><article class="project reveal" style="--stagger:6"><div class="project-head"><h3>Host Hotel Systems - Migra&#231;&#227;o de plataforma</h3><span class="period">mai/2012 - jun/2012</span></div><div class="meta"><span><strong>Cliente:</strong> Host Hotel Systems</span><span><strong>Fun&#231;&#227;o:</strong> Software Architect</span><span><strong>Equipa:</strong> 3</span></div><div class="project-expanded"><p class="expand-title">Descri&#231;&#227;o e tecnologias</p><div class="project-body"><p>Realizou-se a migra&#231;&#227;o de uma plataforma de gest&#227;o de hot&#233;is, desenvolvida originalmente em Windows Forms, para uma nova vers&#227;o web com ExtJs 4.0.7 e MVC4 (ASP.NET). Concebi toda a arquitetura do lado cliente com base no componente ExtJs &#8220;Web Desktop&#8221;, sobre o qual foi desenvolvido um sistema de m&#243;dulos independentes que representavam funcionalidades de neg&#243;cio. Foram criados templates em T4 que permitiram uma maior rapidez de desenvolvimento e asseguravam a manuten&#231;&#227;o de padr&#245;es ao longo de todo o processo.</p><p>Ao n&#237;vel da performance, recorreu-se ao &#8220;Sencha Cmd&#8221; para compress&#227;o do Javascript e CSS, aplicando a t&#233;cnica de colocar todas as classes num &#250;nico ficheiro (jsb3), o qual era comprimido aquando do release para produ&#231;&#227;o. Utilizou-se a mesma t&#233;cnica no CSS. Globalmente, foi poss&#237;vel reduzir o tamanho dos ficheiros Javascript e CSS para mais de metade.</p></div><p class="stack-title">Tecnologias</p><ul class="stack"><li>ASP.NET</li><li>C#</li><li>ExtJs 4.0</li><li>LINQ</li><li>MSSQL Server 2008 R2</li><li>Razor</li><li>Sencha Cmd</li><li>Visual Studio 2012</li></ul></div></article><article class="project reveal" style="--stagger:7"><div class="project-head"><h3>Delphi Mobile Executive Dashboard</h3><span class="period">fev/2012 - abr/2012</span></div><div class="meta"><span><strong>Cliente:</strong> Delphi / Hewlett-Packard</span><span><strong>Fun&#231;&#227;o:</strong> Software Architect</span><span><strong>Equipa:</strong> 2</span></div><div class="project-expanded"><p class="expand-title">Descri&#231;&#227;o e tecnologias</p><div class="project-body"><p>Este projeto foi desenvolvido na &#225;rea Mobile e teve duas vers&#245;es distintas: uma em jQueryMobile e outra em Android (Java). A vers&#227;o em jQueryMobile utilizou o Phonegap como plataforma de distribui&#231;&#227;o da aplica&#231;&#227;o. Tratou-se basicamente de um &#8220;one-man show&#8221;, onde realizei todas as tarefas, desde os WebServices com liga&#231;&#227;o a bases de dados Oracle (dispon&#237;veis apenas na rede interna da Delphi a n&#237;vel mundial) at&#233; ao desenvolvimento da pr&#243;pria aplica&#231;&#227;o. Deparei-me com conceitos relevantes como o CORS (Cross Origin Resource Sharing) e realizei um &#8220;crash course&#8221; em HTML5 e CSS3, absolutamente essencial para desenvolver com o API do Phonegap e com o pr&#243;prio jQueryMobile.</p><p>Foi igualmente interessante trabalhar com o TSQL pr&#243;prio do Oracle via Toad.</p><p>Ao n&#237;vel da arquitetura, optei por utilizar o conceito MVC (n&#227;o o da Microsoft, mas o conceito em si), o qual foi aplicado na vers&#227;o jQueryMobile.</p></div><p class="stack-title">Tecnologias</p><ul class="stack"><li>Android</li><li>ASP.NET</li><li>C#</li><li>CSS3</li><li>Eclipse</li><li>HTML5</li><li>Java</li><li>jQuery</li><li>jQuery Mobile</li><li>LINQ</li><li>Microsoft Web Services</li><li>Oracle 10</li><li>Oracle 11</li><li>Phonegap</li><li>Toad</li><li>Visual Studio 2010</li></ul></div></article><article class="project reveal" style="--stagger:8"><div class="project-head"><h3>DocumentCreator</h3><span class="period">dez/2011 - fev/2012</span></div><div class="meta"><span><strong>Cliente:</strong> Cofidis</span><span><strong>Fun&#231;&#227;o:</strong> Software Architect</span><span><strong>Equipa:</strong> 8</span></div><div class="project-expanded"><p class="expand-title">Descri&#231;&#227;o e tecnologias</p><div class="project-body"><p>O projeto foi realizado para a financeira Cofidis. Esta aplica&#231;&#227;o foi criada para gerir todas as comunica&#231;&#245;es da Cofidis com os seus clientes, desde &#8220;simples&#8221; cartas, telegramas, SMS e faxes. A aplica&#231;&#227;o era apenas para uso interno; integrou-se com uma s&#233;rie de sistemas j&#225; existentes e a principal dificuldade residia no facto de ter de replicar a edi&#231;&#227;o de documentos Word online, sem quaisquer plugins no browser, &#224; semelhan&#231;a do famoso Google Docs. O projeto permitiu tamb&#233;m conhecer algumas tecnologias &#8220;novas&#8221; &#224; &#233;poca, como o OpenXML, utilizado para a gera&#231;&#227;o dos documentos Word.</p></div><p class="stack-title">Tecnologias</p><ul class="stack"><li>ASP.NET</li><li>C#</li><li>ExtJs 4.0</li><li>LINQ</li><li>MSSQL Server 2008 R2</li><li>TFS</li></ul></div></article><article class="project reveal" style="--stagger:9"><div class="project-head"><h3>AECS&#8217;s</h3><span class="period">jan/2010 - nov/2010</span></div><div class="meta"><span><strong>Cliente:</strong> Edugep</span><span><strong>Fun&#231;&#227;o:</strong> Software Architect</span><span><strong>Equipa:</strong> 4</span></div><div class="project-expanded"><p class="expand-title">Descri&#231;&#227;o e tecnologias</p><div class="project-body"><p>O projeto foi criado para um Centro Pedag&#243;gico em Set&#250;bal. O prop&#243;sito desta aplica&#231;&#227;o foi gerir todas as atividades extracurriculares dos estudantes, assim como todo o pessoal docente necess&#225;rio para o efeito. Desde a atribui&#231;&#227;o de avalia&#231;&#245;es, gest&#227;o de curr&#237;culos de professores e relat&#243;rios, todo o processo de gest&#227;o foi desenvolvido para responder &#224;s necessidades de todos os intervenientes do processo. A aplica&#231;&#227;o foi totalmente criada em ExtJs 3.0, PHP e MySQL.</p></div><p class="stack-title">Tecnologias</p><ul class="stack"><li>ExtJs 3.0</li><li>MySQL</li><li>PHP</li></ul></div></article><article class="project reveal" style="--stagger:10"><div class="project-head"><h3>CPBGest</h3><span class="period">jan/2010 - jan/2010</span></div><div class="meta"><span><strong>Cliente:</strong> Edugep</span><span><strong>Fun&#231;&#227;o:</strong> Software Architect</span><span><strong>Equipa:</strong> 4</span></div><div class="project-expanded"><p class="expand-title">Descri&#231;&#227;o e tecnologias</p><div class="project-body"><p>O projeto foi criado para um Centro Pedag&#243;gico em Set&#250;bal, onde o prop&#243;sito foi gerir a pr&#243;pria escola. A aplica&#231;&#227;o executava a gest&#227;o de professores e alunos de forma interligada, incluindo in&#250;meras funcionalidades, desde o registo de assiduidade de alunos e professores, relat&#243;rios, m&#243;dulos financeiros, entre outros. Tratou-se de um projeto de grande dimens&#227;o, com um processo de desenvolvimento bastante complexo.</p></div><p class="stack-title">Tecnologias</p><ul class="stack"><li>ExtJs 3.0</li><li>jQuery</li><li>jQuery UI</li><li>MySQL</li><li>PHP</li></ul></div></article><article class="project reveal" style="--stagger:11"><div class="project-head"><h3>CrewManagement</h3><span class="period">jun/2009 - jul/2012</span></div><div class="meta"><span><strong>Cliente:</strong> EuroAtlantic</span><span><strong>Fun&#231;&#227;o:</strong> Software Architect</span><span><strong>Equipa:</strong> 5</span></div><div class="project-expanded"><p class="expand-title">Descri&#231;&#227;o e tecnologias</p><div class="project-body"><p>Este projeto foi onde tive o meu primeiro contacto com a plataforma ExtJs, na ent&#227;o vers&#227;o 2.0. A aplica&#231;&#227;o realizava a gest&#227;o completa de uma companhia de aeron&#225;utica civil e, na altura, encontrava-se em produ&#231;&#227;o na EuroAtlantic. Inclu&#237;a desde a gest&#227;o de licen&#231;as e treinos de tripulantes, aloca&#231;&#227;o de aeronaves, cria&#231;&#227;o de voos e respetivo RosterPlan, at&#233; &#224; valida&#231;&#227;o de legisla&#231;&#227;o, entre outros. Tratou-se de um projeto muito complexo e de grande dimens&#227;o, mas extremamente interessante. Apanhei o projeto a meio, mas realizei um &#8220;face-lift&#8221; completo a v&#225;rios n&#237;veis, incluindo um upgrade integral para ExtJs 3.0.</p></div><p class="stack-title">Tecnologias</p><ul class="stack"><li>ASP.NET</li><li>C#</li><li>ExtJs 2.0</li><li>ExtJs 3.0</li><li>LINQ</li><li>MSSQL Server 2005</li><li>MSSQL Server 2008 R2</li><li>MVC</li><li>TFS</li><li>Visual Studio 2010</li></ul></div></article><article class="project reveal" style="--stagger:12"><div class="project-head"><h3>Pr&#233;mio Cidadania</h3><span class="period">jan/2009 - jan/2010</span></div><div class="meta"><span><strong>Cliente:</strong> Price Waterhouse and Coopers</span><span><strong>Fun&#231;&#227;o:</strong> Software Developer</span><span><strong>Equipa:</strong> 5</span></div><div class="project-expanded"><p class="expand-title">Descri&#231;&#227;o e tecnologias</p><div class="project-body"><p>Fiz parte da equipa que desenvolveu o site para o concurso nacional Pr&#233;mio Cidadania 2009 e 2010. Desenvolvi &#8220;web methods&#8221; utilizados em alguns formul&#225;rios, com o objetivo de executar valida&#231;&#245;es remotas de dados via Ajax e CustomValidators.</p></div><p class="stack-title">Tecnologias</p><ul class="stack"><li>ASP.NET</li><li>C#</li><li>jQuery</li><li>MSSQL Server 2005</li><li>Visual Studio 2010</li></ul></div></article><article class="project reveal" style="--stagger:13"><div class="project-head"><h3>Migra&#231;&#227;o de plataforma em OutSystems</h3><span class="period">jan/2009 - jan/2012</span></div><div class="meta"><span><strong>Cliente:</strong> Cofidis</span><span><strong>Fun&#231;&#227;o:</strong> Software Developer</span><span><strong>Equipa:</strong> 10</span></div><div class="project-expanded"><p class="expand-title">Descri&#231;&#227;o e tecnologias</p><div class="project-body"><p>Realizou-se a migra&#231;&#227;o de uma plataforma em OutSystems para DotNetNuke (DesktopModules) &#8211; uma aplica&#231;&#227;o respons&#225;vel por todo o sistema de suporte ao Callcenter dos departamentos de Recupera&#231;&#227;o de Cr&#233;dito. Foram utilizados sistemas web-based, assim como sistemas de batch para processamento autom&#225;tico de dados.</p></div><p class="stack-title">Tecnologias</p><ul class="stack"><li>ASP.NET</li><li>C#</li><li>DotNetNuke</li><li>jQuery</li><li>Microsoft Ajax Control Toolkit</li><li>MSSQL Server 2005</li><li>OutSystems</li></ul></div></article><article class="project reveal" style="--stagger:14"><div class="project-head"><h3>SetCom CMS</h3><span class="period">jan/2009 - mai/2009</span></div><div class="meta"><span><strong>Cliente:</strong> Partido Socialista</span><span><strong>Fun&#231;&#227;o:</strong> Software Architect</span><span><strong>Equipa:</strong> 8</span></div><div class="project-expanded"><p class="expand-title">Descri&#231;&#227;o e tecnologias</p><div class="project-body"><p>Tratou-se de um gestor de conte&#250;dos bastante simples, mas com algumas funcionalidades de drag&amp;drop e sortables implementadas via jQuery UI. Esta plataforma foi usada nas campanhas pol&#237;ticas (Legislativas) de um dos dois maiores partidos pol&#237;ticos portugueses. O projeto foi interessante: recebemos da equipa de design os layouts dos sites criados em Photoshop e tivemos o trabalho de os &#8220;traduzir&#8221; para HTML e CSS. Foi dada grande aten&#231;&#227;o &#224;s quest&#245;es de acessibilidade, tendo o projeto sido auditado por uma empresa especializada na &#225;rea. Realizou-se tamb&#233;m um grande esfor&#231;o de testes ao n&#237;vel de &#8220;cross-browser compatibility&#8221;, uma vez que o site utilizou extensivamente Javascript e algumas solu&#231;&#245;es em HTML e CSS relativamente complexas. Para estes testes, foram utilizadas m&#225;quinas virtuais com diferentes sistemas operativos, service packs e browsers em diversas vers&#245;es. Foram igualmente aplicados conceitos de responsive design, recorrendo ao uso de media queries e fluid layouts.</p></div><p class="stack-title">Tecnologias</p><ul class="stack"><li>ASP.NET</li><li>C#</li><li>CSS</li><li>Javascript</li><li>jQuery</li><li>jQuery UI</li><li>LINQ</li><li>MSSQL Server 2005</li><li>Visual Studio 2005</li></ul></div></article><article class="project reveal" style="--stagger:15"><div class="project-head"><h3>Nokia Spare Parts Manager</h3><span class="period">jan/2008 - dez/2008</span></div><div class="meta"><span><strong>Cliente:</strong> Nokia</span><span><strong>Fun&#231;&#227;o:</strong> Lead Developer</span><span><strong>Equipa:</strong> 3</span></div><div class="project-expanded"><p class="expand-title">Descri&#231;&#227;o e tecnologias</p><div class="project-body"><p>A aplica&#231;&#227;o foi desenvolvida em Windows Forms e escrita em C#. Utilizou WebServices para todas as opera&#231;&#245;es, funcionando apenas como um ThinClient. O principal objetivo foi realizar a manuten&#231;&#227;o do stock de componentes eletr&#243;nicos reais, presentes em in&#250;meras aplica&#231;&#245;es sat&#233;lite da SetCom.</p></div><p class="stack-title">Tecnologias</p><ul class="stack"><li>C#</li><li>Microsoft Web Services</li><li>MSSQL Server 2000</li><li>Visual Studio 2010</li><li>Windows Forms</li></ul></div></article><article class="project reveal" style="--stagger:16"><div class="project-head"><h3>Look&amp;Find &#174;</h3><span class="period">jan/2008 - mai/2008</span></div><div class="meta"><span><strong>Cliente:</strong> EAD &#8211; Empresa de Arquivo de Documenta&#231;&#227;o</span><span><strong>Fun&#231;&#227;o:</strong> Software Architect</span><span><strong>Equipa:</strong> 3</span></div><div class="project-expanded"><p class="expand-title">Descri&#231;&#227;o e tecnologias</p><div class="project-body"><p>Tratou-se de um produto comercial criado para a EAD, onde trabalhei durante cerca de dois anos. O projeto foi desenvolvido depois de eu j&#225; n&#227;o trabalhar na empresa, mas a pedido do Administrador Paulo Veiga, e devido ao meu conhecimento aprofundado do neg&#243;cio da cust&#243;dia documental, decidimos desenvolver uma plataforma de gest&#227;o documental totalmente integrada com algumas das solu&#231;&#245;es existentes na empresa, nomeadamente as solu&#231;&#245;es Kofax. Simplicidade, robustez e uma interface atraente fizeram com que esta aplica&#231;&#227;o continuasse em produ&#231;&#227;o em alguns dos clientes mais importantes da empresa.</p></div><p class="stack-title">Tecnologias</p><ul class="stack"><li>ASP.NET</li><li>C#</li><li>MooTools</li><li>MSSQL Server 2005</li><li>Visual Studio 2005</li></ul></div></article><article class="project reveal" style="--stagger:17"><div class="project-head"><h3>Nokia Marrocos ASMS</h3><span class="period">jan/2008 - dez/2008</span></div><div class="meta"><span><strong>Cliente:</strong> Nokia</span><span><strong>Fun&#231;&#227;o:</strong> Lead Developer</span><span><strong>Equipa:</strong> 3</span></div><div class="project-expanded"><p class="expand-title">Descri&#231;&#227;o e tecnologias</p><div class="project-body"><p>Este projeto foi criado para a gest&#227;o de stock de componentes da linha de repara&#231;&#227;o da Nokia, em Palmela, na empresa Setcom SGPS. Tratava-se de um site usado internacionalmente e, por isso, era multilingue.</p><p>O projeto teve um percurso sinuoso, uma vez que peg&#225;mos num projeto original criado em PHP e acab&#225;mos por traduzir/migrar tudo para C# (.NET). Foi interessante perceber as grandes diferen&#231;as entre linguagens interpretadas e compiladas.</p></div><p class="stack-title">Tecnologias</p><ul class="stack"><li>ASP.NET</li><li>C#</li><li>jQuery</li><li>MSSQL Server 2000</li><li>PHP</li></ul></div></article><article class="project reveal" style="--stagger:18"><div class="project-head"><h3>Dynasys Sales Management System</h3><span class="period">jan/2007 - dez/2007</span></div><div class="meta"><span><strong>Cliente:</strong> Octal</span><span><strong>Fun&#231;&#227;o:</strong> Software Architect</span><span><strong>Equipa:</strong> 3</span></div><div class="project-expanded"><p class="expand-title">Descri&#231;&#227;o e tecnologias</p><div class="project-body"><p>O projeto foi desenvolvido em C# e utilizou uma base de dados MSSQL Server 2000. Foi onde dei os primeiros passos em AJAX. Na altura, usei uma library do MVP M. Schwarz, atrav&#233;s da qual trabalhei com conceitos interessantes, como o uso de fun&#231;&#245;es server-side via Javascript, algo que hoje &#233; mais comum.</p></div><p class="stack-title">Tecnologias</p><ul class="stack"><li>ASP.NET</li><li>C#</li><li>jQuery</li><li>MSSQL Server 2000</li><li>Visual Studio 2005</li></ul></div></article><article class="project reveal" style="--stagger:19"><div class="project-head"><h3>CttExpresso &#8211; Registo de Guias</h3><span class="period">jan/2007 - dez/2007</span></div><div class="meta"><span><strong>Cliente:</strong> CTT EXPRESSO</span><span><strong>Fun&#231;&#227;o:</strong> Lead Developer</span><span><strong>Equipa:</strong> 3</span></div><div class="project-expanded"><p class="expand-title">Descri&#231;&#227;o e tecnologias</p><div class="project-body"><p>Esta aplica&#231;&#227;o realizava o registo das guias de remessas da empresa CTT Expresso. A empresa EAD faz&#237;a parte do grupo CTT e, ap&#243;s esta uni&#227;o, pass&#225;mos a ter na EAD muitos desenvolvimentos feitos &#224; medida para os CTT.</p></div><p class="stack-title">Tecnologias</p><ul class="stack"><li>ASP.NET</li><li>C#</li><li>MSSQL Server 2000</li></ul></div></article><article class="project reveal" style="--stagger:20"><div class="project-head"><h3>RTD &#8211; Registo de Trabalho di&#225;rio</h3><span class="period">jan/2006 - dez/2006</span></div><div class="meta"><span><strong>Cliente:</strong> EAD &#8211; Empresa de Arquivo de Documenta&#231;&#227;o</span><span><strong>Fun&#231;&#227;o:</strong> Lead Developer</span><span><strong>Equipa:</strong> 5</span></div><div class="project-expanded"><p class="expand-title">Descri&#231;&#227;o e tecnologias</p><div class="project-body"><p>A aplica&#231;&#227;o foi criada para a EAD com o prop&#243;sito de controlar todas as tarefas de produ&#231;&#227;o dos colaboradores diretamente ligados aos departamentos respons&#225;veis pela cust&#243;dia f&#237;sica e digital de documentos. Foram utilizados conceitos de WorkFlow e m&#225;quinas de estado, &#224; semelhan&#231;a do que hoje &#233; a Microsoft WWF. Inclu&#237;a alguns m&#243;dulos com funcionalidades extra, nomeadamente a impress&#227;o de c&#243;digos de barras de diversos tipos e processos de controlo de qualidade. O projeto foi bastante complexo e de grande responsabilidade.</p></div><p class="stack-title">Tecnologias</p><ul class="stack"><li>ASP.NET</li><li>C#</li><li>MSSQL Server 2000</li></ul></div></article><article class="project reveal" style="--stagger:21"><div class="project-head"><h3>Virtual Tours</h3><span class="period">jan/2005 - dez/2005</span></div><div class="meta"><span><strong>Cliente:</strong> Projeto Pessoal</span><span><strong>Fun&#231;&#227;o:</strong> Software Architect</span><span><strong>Equipa:</strong> 1</span></div><div class="project-expanded"><p class="expand-title">Descri&#231;&#227;o e tecnologias</p><div class="project-body"><p>Criei este gestor de conte&#250;dos (CMS) para exibir online todo o meu stock de fotografias em 360&#186;, uma grande paix&#227;o minha h&#225; alguns anos. Apaixonei-me por esta tecnologia em 2002, ap&#243;s ver algumas fotos numa Diciop&#233;dia da Porto Editora e, desde ent&#227;o, tornei-me um &#225;vido consumidor de tecnologias relacionadas, nomeadamente o &#8220;famoso&#8221; ptviewer, Panoweaver, RealVizStitcher e o car&#237;ssimo iPix.</p></div><p class="stack-title">Tecnologias</p><ul class="stack"><li>Adobe Photoshop</li><li>ASP.NET</li><li>C#</li><li>Microsoft Access</li><li>MSSQL Server 2000</li><li>Visual Studio 2005</li></ul></div></article><article class="project reveal" style="--stagger:22"><div class="project-head"><h3>eCommerce &#8211; Framing Services</h3><span class="period">jan/2004 - dez/2004</span></div><div class="meta"><span><strong>Cliente:</strong> Spiark Lda. &#8211; Franchise Moldura na Hora</span><span><strong>Fun&#231;&#227;o:</strong> Lead Developer</span><span><strong>Equipa:</strong> 2</span></div><div class="project-expanded"><p class="expand-title">Descri&#231;&#227;o e tecnologias</p><div class="project-body"><p>A aplica&#231;&#227;o foi criada para simular o emolduramento de quadros. O utilizador escolhia o quadro que desejava emoldurar e, em seguida, iniciava o processo de emolduramento, podendo selecionar dezenas de elementos, desde passe-partouts, molduras, canvas, entre outros. Esta solu&#231;&#227;o teve como base um gestor de conte&#250;do chamado Comersus, desenvolvido em ASP cl&#225;ssico. O projeto foi criado em 2003 para a empresa Spiark, onde trabalhei.</p></div><p class="stack-title">Tecnologias</p><ul class="stack"><li>ASP Classico (VB)</li><li>CSS</li><li>HTML</li><li>Javascript</li><li>Microsoft Access</li></ul></div></article></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Idiomas</h2>
+      </div>
+      <div class="lang-grid"><article class="lang-card reveal" style="--stagger:1"><p>Nativo</p><h3>Portugu&#234;s</h3></article><article class="lang-card reveal" style="--stagger:2"><p>Fluente</p><h3>Ingl&#234;s</h3></article><article class="lang-card reveal" style="--stagger:3"><p>B&#225;sico</p><h3>Franc&#234;s</h3></article><article class="lang-card reveal" style="--stagger:4"><p>B&#225;sico</p><h3>Espanhol</h3></article></div>
+    </section>
+
+    <section class="about">
+      <div class="section-head">
+        <h2>Apresenta&#231;&#227;o</h2>
+        <p>Nota pessoal e percurso.</p>
+      </div>
+      <p class="reveal" style="--stagger:1">O meu percurso na &#225;rea da inform&#225;tica n&#227;o foi realmente dos mais convencionais. A incurs&#227;o na m&#250;sica poderia ser &#224; partida algo que talvez n&#227;o deveria referir num curr&#237;culo, mas, penso que me trouxe enriquecimento em diversas &#225;reas: trabalho em grupo, persist&#234;ncia, for&#231;a de vontade, entre outros. A m&#250;sica trouxe-me riqueza cultural e fez de mim uma pessoa de esp&#237;rito aberto e recetivo a novas e desconhecidas experi&#234;ncias.</p><p class="reveal" style="--stagger:2">Desde cedo mostrei grande interesse na &#225;rea da inform&#225;tica. Lembro-me de, nos meados dos anos 80, terem-te oferecido um Timex 2068, a vers&#227;o americana do famoso ZX Spectrum. Comecei desde a&#237; uma saud&#225;vel obsess&#227;o por estas m&#225;quinas, tendo desde logo come&#231;ado a programar em BASIC e posteriormente tendo &quot;evolu&#237;do&quot; para o c&#243;digo m&#225;quina. Esta rela&#231;&#227;o durou alguns anos, mas acabou sendo interrompida pela m&#250;sica, pois algu&#233;m teve a ideia de me oferecer uma guitarra. Come&#231;ou a&#237; outra das minhas paix&#245;es: a m&#250;sica.</p><p class="reveal" style="--stagger:3">Fui estudante de m&#250;sica, tendo ingressado no Conservat&#243;rio de Set&#250;bal para o estudo da Guitarra Cl&#225;ssica. A paix&#227;o pela guitarra el&#233;trica fez com que me afastasse do ensino cl&#225;ssico, tendo enveredado posteriormente por &#225;reas como o Jazz, Funk e Soul. Tornei-me m&#250;sico profissional, gravei alguns registos sonoros e apresentei-me como m&#250;sico um pouco por todo o mundo. Apesar de nunca ter tido grande autonomia financeira na m&#250;sica, devido &#224; &#225;rea ser pouco proveitosa em Portugal, a paix&#227;o fez-me continuar at&#233; que uma nova situa&#231;&#227;o pessoal fez com que acabasse por enveredar definitivamente pela inform&#225;tica. E, mais uma vez, algu&#233;m se lembrou de me oferecer algo: desta vez um PC. Recome&#231;ou a&#237;, ent&#227;o, a paix&#227;o pelos computadores, mas agora com novos atrativos: a Internet e todo o mundo que se abria com ela.</p><p class="reveal" style="--stagger:4">Desde ent&#227;o, n&#227;o parei. A programa&#231;&#227;o tem sido para mim uma enorme paix&#227;o e fonte de rendimento pessoal, o que faz com que eu tenha a situa&#231;&#227;o profissional ideal: trabalhar em algo que realmente gosto de fazer.</p><p class="reveal" style="--stagger:5">Al&#233;m da inform&#225;tica, retomei outra paix&#227;o: a fotografia. Ap&#243;s uma longa pausa de mais de dez anos, retomei o hobby da fotografia como forma de encontrar significado durante o isolamento imposto pela pandemia. Tenho desenvolvido diversos projetos fotogr&#225;ficos onde exploro a minha vis&#227;o sobre a cidade de Set&#250;bal e arredores. Ao longo dos &#250;ltimos anos, tive a oportunidade de participar em exposi&#231;&#245;es de fotografia, onde pude partilhar o meu trabalho com o p&#250;blico recebendo reconhecimento pela minha abordagem art&#237;stica, tendo at&#233; algumas fotos de minha autoria publicadas na revista National Geographic. Podem aceder a facebook.com/josemauriciophotography, onde exibo o meu portf&#243;lio.</p>
+      <p class="signature reveal" style="--stagger:8">Jos&#233; Maur&#237;cio &#8211; 10 Mar&#231;o 2025</p>
+    </section>
+  </main>
+</body>
+</html>
